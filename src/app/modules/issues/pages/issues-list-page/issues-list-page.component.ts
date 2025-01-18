@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { IssuesService } from '../../services/issues.service';
 import { LabelsSelectorComponent } from "../../components/issue-selector/issue-selector";
 import { IssueItemComponent } from '../../components/issue-item/issue-item';
+import { State } from '../../interfaces/github-issue';
 
 @Component({
   selector: 'app-issues-list-page',
@@ -12,7 +13,7 @@ import { IssueItemComponent } from '../../components/issue-item/issue-item';
 })
 export default class IssuesListPageComponent {
   issuesService = inject(IssuesService);
-
+  state = {...State};
   public issueLabels = signal(this.issuesService.labelsQuery);
   public issueQuery = signal(this.issuesService.issuesQuery);
 }
